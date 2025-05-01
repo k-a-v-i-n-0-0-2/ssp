@@ -70,10 +70,6 @@ const SriSandhiya = () => {
       {/* Page Header */}
       <section className={styles.pageHeader}>
         <div>
-          <button onClick={() => navigate(-1)} className={styles.backButton}>
-            <FiArrowLeft />
-            Back to Programs
-          </button>
           <h1 className={styles.pageTitle}>Sri Sandhiya Special Program</h1>
           <p className={styles.pageSubtitle}>Premium One-on-One Home Tuition for Accelerated Learning</p>
         </div>

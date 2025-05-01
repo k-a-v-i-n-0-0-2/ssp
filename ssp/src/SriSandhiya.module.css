@@ -97,7 +97,7 @@
   .pageHeader {
     background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     color: var(--pure-white);
-    padding: 10rem 0 5rem;
+    padding: 15rem 0 5rem;
     position: relative;
     overflow: hidden;
     width: 100vw;

@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react
 import './App.css';
 
 // Import the detail page components
-import SSPTuitionCenter from './SSPTuitionCenter';
 import SriSandhiya from './SriSandhiya';
 import HomePersonalTuition from './HomePersonalTuition';
 
@@ -88,7 +87,7 @@ function Home() {
           <nav className={`navbar ${isMenuOpen ? 'active' : ''}`}>
             <ul className="nav-links">
               <li><a href="#home" onClick={() => scrollToSection('home')}>Home</a></li>
-              <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
+              <li><Link to="/about">About</Link></li>
               <li><a href="#subjects" onClick={() => scrollToSection('subjects')}>Subjects</a></li>
               <li><a href="#programs" onClick={() => scrollToSection('programs')}>Tutoring Programs</a></li>
               <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
@@ -131,7 +130,7 @@ function Home() {
           
           <div className="about-content">
             <div className="about-image animate-on-scroll">
-              <img src="/images/tutor.jpg" alt="Mathematics Tutor" />
+              <img src="./sri.png" alt="Mathematics Tutor" />
             </div>
             
             <div className="about-text animate-on-scroll">
@@ -174,26 +173,16 @@ function Home() {
           </div>
           
           <div className="programs-container">
-            {/* SSP Tuition Center */}
-            <div className="program-card animate-on-scroll">
+          
+            
+            {/* Sri Sandhiya Special */}
+            <div className="program-card animate-on-scroll featured-program">
               <div className="program-header">
-                <h3>SSP Tuition Center</h3>
-                <div className="program-badge">Group Classes</div>
+                <h3>Sri Sandhiya Special (Home Tuition)</h3>
+                <div className="program-badge">Premium</div>
               </div>
-              
               <div className="faculty-section">
                 <h4>Expert Faculty:</h4>
-                <div className="faculty-member">
-                  <div className="faculty-avatar">
-                    <FiUser />
-                  </div>
-                  <div className="faculty-info">
-                    <h5>R. Ramya M.E.</h5>
-                    <p>Mathematics, Advanced Maths</p>
-                    <span className="experience-badge">10+ years</span>
-                  </div>
-                </div>
-                
                 <div className="faculty-member">
                   <div className="faculty-avatar">
                     <FiUser />
@@ -205,43 +194,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              
-              <ul className="program-features">
-                <li><FiCheck className="feature-icon" /> CBSE & State Board Syllabus</li>
-                <li><FiCheck className="feature-icon" /> Daily 2-hour focused sessions</li>
-                <li><FiCheck className="feature-icon" /> Weekly comprehensive progress tests</li>
-                <li><FiCheck className="feature-icon" /> Individual doubt clearing sessions</li>
-                <li><FiCheck className="feature-icon" /> Air-conditioned modern classrooms</li>
-              </ul>
-              
-              <button 
-                className="details-button" 
-                onClick={() => handleNavigateToDetails('ssp')}
-              >
-                View Details <FiArrowRight className="btn-icon" />
-              </button>
-            </div>
-            
-            {/* Sri Sandhiya Special */}
-            <div className="program-card animate-on-scroll featured-program">
-              <div className="program-header">
-                <h3>Sri Sandhiya Special (Home Tuition)</h3>
-                <div className="program-badge">Premium</div>
-              </div>
-              
-              <div className="faculty-section">
-                <h4>Expert Faculty:</h4>
-                <div className="faculty-member">
-                  <div className="faculty-avatar">
-                    <FiUser />
-                  </div>
-                  <div className="faculty-info">
-                    <h5>D. Sathish M.Sc., B.Ed.</h5>
-                    <p>CBSE Mathematics (Special Focus)</p>
-                    <span className="experience-badge">12+ years</span>
-                  </div>
-                </div>
-              </div>
+
               
               <ul className="program-features">
                 <li><FiCheck className="feature-icon" /> 1-on-1 personalized coaching</li>
@@ -268,17 +221,19 @@ function Home() {
               
               <div className="faculty-section">
                 <h4>Expert Faculty:</h4>
+                
                 <div className="faculty-member">
                   <div className="faculty-avatar">
                     <FiUser />
                   </div>
                   <div className="faculty-info">
-                    <h5>D. Sathish M.Sc., B.Ed.</h5>
-                    <p>Mathematics, Business Maths, Accountancy</p>
-                    <span className="experience-badge">15+ years</span>
+                    <h5>Sri Santhiya</h5>
+                    <p>Chemistry & Physics</p>
+                    <span className="experience-badge">8+ years</span>
                   </div>
                 </div>
               </div>
+
               
               <ul className="program-features">
                 <li><FiCheck className="feature-icon" /> Premium doorstep teaching service</li>
@@ -563,7 +518,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/ssp" element={<SSPTuitionCenter />} />
         <Route path="/sri-sandhiya" element={<SriSandhiya />} />
         <Route path="/home-personal" element={<HomePersonalTuition />} />
 
