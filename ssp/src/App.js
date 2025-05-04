@@ -9,12 +9,12 @@ import './App.css';
 // Import the detail page components
 import SriSandhiya from './SriSandhiya';
 import HomePersonalTuition from './HomePersonalTuition';
-
-
+import TutoringBooking from './BookEnquiry'; // Import the booking component
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(false); // State to control booking form display
   const navigate = useNavigate();
 
   // Handle scroll effect for navbar
@@ -69,6 +69,16 @@ function Home() {
     navigate(`/${page}`);
   };
 
+  // Open booking form
+  const openBookingForm = () => {
+    setShowBookingForm(true);
+  };
+
+  // Close booking form
+  const closeBookingForm = () => {
+    setShowBookingForm(false);
+  };
+
   return (
     <div className="app">
       {/* Header/Navbar */}
@@ -98,7 +108,6 @@ function Home() {
 
       {/* Hero Section */}
       <section id="home" className="hero-section">
-        {/* Hero content remains the same */}
         <div className="container hero-container">
           <div className="hero-content animate-on-scroll">
             <h1 className="hero-title">
@@ -108,7 +117,7 @@ function Home() {
               Transform your mathematical abilities with personalized coaching from experienced educators
             </p>
             <div className="hero-buttons">
-              <button className="cta-button primary-button">
+              <button className="cta-button primary-button" onClick={openBookingForm}>
                 Get Started <FiArrowRight className="btn-icon" />
               </button>
               <button className="cta-button secondary-button">
@@ -121,7 +130,6 @@ function Home() {
 
       {/* About Section */}
       <section id="about" className="about-section">
-        {/* About section content remains the same */}
         <div className="container">
           <div className="section-header animate-on-scroll">
             <h2 className="section-title">About Our Program</h2>
@@ -227,8 +235,8 @@ function Home() {
                     <FiUser />
                   </div>
                   <div className="faculty-info">
-                    <h5>Sri Santhiya</h5>
-                    <p>Chemistry & Physics</p>
+                    <h5>Sathish Dhanabal</h5>
+                    <p>Mathematics</p>
                     <span className="experience-badge">8+ years</span>
                   </div>
                 </div>
@@ -509,6 +517,14 @@ function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Render Booking Form when showBookingForm is true */}
+      {showBookingForm && (
+        <TutoringBooking 
+          onClose={closeBookingForm} 
+          preSelectedProgram="" 
+        />
+      )}
     </div>
   );
 }
@@ -520,9 +536,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sri-sandhiya" element={<SriSandhiya />} />
         <Route path="/home-personal" element={<HomePersonalTuition />} />
-
       </Routes>
     </Router>
   );
 }
+
 export default App;
