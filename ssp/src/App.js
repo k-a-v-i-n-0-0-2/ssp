@@ -5,11 +5,14 @@ import {
 } from 'react-icons/fi';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import './App.css';
+import About from './About'
+import Contact from './contact'
 
 // Import the detail page components
 import SriSandhiya from './SriSandhiya';
 import HomePersonalTuition from './HomePersonalTuition';
 import TutoringBooking from './BookEnquiry'; // Import the booking component
+import Navbar from './Navabar';
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -100,7 +103,7 @@ function Home() {
               <li><Link to="/about">About</Link></li>
               <li><a href="#subjects" onClick={() => scrollToSection('subjects')}>Subjects</a></li>
               <li><a href="#programs" onClick={() => scrollToSection('programs')}>Tutoring Programs</a></li>
-              <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
+              <li><a href="/contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -532,10 +535,13 @@ function Home() {
 function App() {
   return (
     <Router>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sri-sandhiya" element={<SriSandhiya />} />
         <Route path="/home-personal" element={<HomePersonalTuition />} />
+        <Route path="/about" element={< About/>} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
